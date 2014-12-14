@@ -1,9 +1,10 @@
 module Shoppe
   module ModelExtension
 
-    def self.included(base)
-      base.extend ClassMethods
-      base.after_save do
+    extend ActiveSupport::Concern
+
+    included do
+      after_save do
         if @pending_attachments
           @pending_attachments.each do |pa|
             old_attachments = self.attachments.where(:role => pa[:role]).pluck(:id)
@@ -16,12 +17,12 @@ module Shoppe
     end
 
     module ClassMethods
-      
+
       def attachment(name)
         unless self.reflect_on_all_associations(:has_many).map(&:name).include?(:attachments)
           has_many :attachments, :as => :parent, :dependent => :destroy, :class_name => 'Shoppe::Attachment'
         end
-        
+
         has_one name, -> { select(:id, :token, :parent_id, :parent_type, :file_name, :file_type, :file_size).where(:role => name) }, :class_name => 'Shoppe::Attachment', :as => :parent
 
         define_method "#{name}_file" do
@@ -37,7 +38,7 @@ module Shoppe
             nil
           end
         end
-      end   
+      end
     end
 
   end
