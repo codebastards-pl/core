@@ -286,6 +286,15 @@ form {
     ul li { list-style:disc; margin-left:25px; font-size:1.2em;}
   }
 
+	div.extraAttachments{
+		.template {display: none;}
+		dl.half { margin-top: 15px; }
+	}
+	p.addAttachment {
+		float: right;
+		margin-top: 15px;
+	}
+
 	//
 	// attachment preview
 	//

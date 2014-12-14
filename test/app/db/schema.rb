@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20141027092201) do
     t.string  "value"
   end
 
+  create_table "shoppe_attachments", force: true do |t|
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.string   "token"
+    t.string   "file"
+    t.string   "file_name"
+    t.integer  "file_size"
+    t.string   "file_type"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shoppe_countries", force: true do |t|
     t.string  "name"
     t.string  "code2"

@@ -9,6 +9,21 @@ module Shoppe
     require_dependency 'shoppe/product/product_attributes'
     require_dependency 'shoppe/product/variants'
 
+    # Attachments for this product
+    has_many :attachments, :as => :parent, :dependent => :destroy, :class_name => "Shoppe::Attachment"
+
+    # Used for setting an array of product attributes which will be updated. Usually
+    # received from a web browser.
+    attr_accessor :attachments_array
+
+    after_save do
+      # After saving automatically try to update the product attachments based on the
+      # the contents of the attachments_array array.
+      if attachments_array.is_a?(Array)
+        self.attachments.update_from_array(attachments_array)
+      end
+    end
+
     # Products have a default_image and a data_sheet
     attachment :default_image
     attachment :data_sheet
@@ -94,6 +109,15 @@ module Shoppe
       self.stock_level_adjustments.sum(:adjustment)
     end
 
+    # Attachments
+    def default_image
+      self.attachments.for("default_image")
+    end
+
+    def data_sheet
+      self.attachments.for("data_sheet")
+    end
+
     # Search for products which include the given attributes and return an active record
     # scope of these products. Chainable with other scopes and with_attributes methods.
     # For example:
@@ -105,7 +129,7 @@ module Shoppe
       product_ids = Shoppe::ProductAttribute.searchable.where(:key => key, :value => values).pluck(:product_id).uniq
       where(:id => product_ids)
     end
-  
+
     # Imports products from a spreadsheet file
     # Example:
     #
