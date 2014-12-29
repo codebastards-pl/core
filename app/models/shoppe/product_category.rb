@@ -47,6 +47,11 @@ module Shoppe
       end
     end
 
+    # Attachments
+    def image
+      self.attachments.for("image")
+    end
+
     private
 
     def set_permalink
@@ -59,11 +64,6 @@ module Shoppe
         permalinks << category.permalink
       end
       self.ancestral_permalink = permalinks.join '/'
-    end
-
-    # Attachments
-    def image
-      self.attachments.for("image")
     end
 
     def set_child_permalinks
