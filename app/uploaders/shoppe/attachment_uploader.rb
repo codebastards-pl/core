@@ -4,7 +4,7 @@ class Shoppe::AttachmentUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
-  storage :file
+  storage :fog
 
   # Where should files be stored?
   def store_dir
