@@ -27,7 +27,7 @@ class Shoppe::AttachmentUploader < CarrierWave::Uploader::Base
   end
 
   version :wide, :if => :image? do
-    process :resize_to_pad => [700, 700]
+    process :resize_and_pad => [700, 700]
   end
 
 end
