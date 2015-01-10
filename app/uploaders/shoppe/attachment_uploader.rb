@@ -23,11 +23,11 @@ class Shoppe::AttachmentUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb, :if => :image? do
-    process :resize_and_pad => [215, 320]
+    process :resize_to_fit => [230, 350]
   end
 
   version :wide, :if => :image? do
-    process :resize_and_pad => [700, 700]
+    process :resize_to_fit => [700, 700]
   end
 
 end
