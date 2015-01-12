@@ -404,6 +404,7 @@ pl:
       no_categories: Brak kategorii do wyświetlenia
       permalink: Permalink
       permalink_includes_ancestors: Prefix links in store with ancestor categories
+      position: Pozycja
       product_categories: Kategorie produktów
       update_notice: Kategoria została zaktualizowana
       nesting:
