@@ -10,7 +10,7 @@ module Shoppe
     def nested_product_category_rows(category, current_category = nil, link_to_current = true, relative_depth = 0)
       if category.present? && category.children.count > 0
         String.new.tap do |s|
-          category.children.ordered.each do |child|
+          category.children.positioned.each do |child|
             s << "<tr>"
             s << "<td>"
             if child == current_category
