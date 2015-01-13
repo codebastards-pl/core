@@ -18,7 +18,7 @@
       %dt= f.label :description, t('shoppe.product_category.description')
       %dd= f.text_area :description, :class => 'text'
       %dt= f.label :position, t('shoppe.product_category.position')
-      %dd= f.text_area :position, :class => 'text'
+      %dd= f.text_field :position, :class => 'text'
 
   = field_set_tag t('shoppe.product_category.nesting.category_nesting') do
     %dl
