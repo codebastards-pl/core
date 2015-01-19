@@ -11,8 +11,10 @@ module Shoppe
 
     # Validations
     with_options :if => Proc.new { |o| !o.building? } do |order|
-      order.validates :first_name, :presence => true
-      order.validates :last_name, :presence => true
+      order.validates :first_name, :presence => true, :if => Proc.new {|o| !o.for_company? }
+      order.validates :last_name, :presence => true, :if => Proc.new {|o| !o.for_company? }
+      order.validates :company, :presence => true, :if => Proc.new {|o| o.for_company? }
+      order.validates :company_number, :presence => true, :if => Proc.new {|o| o.for_company? }
       order.validates :billing_address1, :presence => true
       order.validates :billing_address3, :presence => true
       order.validates :billing_address4, :presence => true
