@@ -1,6 +1,38 @@
-Dzień dobry <%= @order.first_name %>,
+Zamówienie numer <%= @order.number %> w sklepie Włóczka–cafe.pl zostało przyjete.
 
-Otrzymaliśmy wpłatę za zamówienie numer <%= @order.number %>.
-Zamówienie zostało przyjęte do realizacji.
+Szczegóły zamówienia:
 
-Włóczka Cafe dziękuje za współpracę.
+Data złożenia zamówienia: <%= @order.created_at.to_s(:short) %>
+
+Przedmiot zamówienia:
+<% @order.order_items.each_with_index do |item, index| %>
+  <% product = item.ordered_item %>
+  <%= index+1 %>) <%= product.product_category.try :name %> <%= product.name %> | ilość: <%= item.quantity %> | kwota: <%= item.total %>zł
+<% end %>
+
+Suma: <%= @order.total %> zł
+Status: Oczekiwanie na wpłatę
+
+Dokonaj płatności za pośrednictwem przelewu bankowego na konto
+
+  ING Bank Śląski IBAN PL57 1050 1142 1000 0091 3198 5708
+
+  Dane do przelewu: 
+
+  FORWARD Olga Bil 
+  ul. Wileńska 5 
+  42-280 Częstochowa 
+
+  w tytule podaj następującą treść:
+
+  Włóczka Cafe, Zamówienie numer <%= @order.number %>
+
+Włóczka-cafe.pl dziękuje za dokonanie zamówienia. 
+Jeśli masz pytania związane z zamówieniem, możesz się skontaktować: 
+e-mail: kontakt@wloczka-cafe.pl
+lub telefonicznie + 48 668 663 020  
+
+* właścicielem sklepu Włóczka-cafe.pl jest 
+FORWARD Olga Bil 
+ul. Wileńska 5 
+42-280 Częstochowa 
