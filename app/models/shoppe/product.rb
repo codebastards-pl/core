@@ -103,7 +103,7 @@ module Shoppe
     #
     # @return [BigDecimal]
     def grand_price
-      (self.default_variant ? self.default_variant.price : read_attribute(:price))*(1 + (tax_rate.try(:rate)||0)/100.0)
+      ((self.default_variant ? self.default_variant.price : read_attribute(:price))*(1 + (tax_rate.try(:rate)||0)/100.0)).round(2)
     end
 
     # Is this product currently in stock?
