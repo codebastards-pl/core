@@ -16,7 +16,6 @@ module Shoppe
       order.validates :company, :presence => true, :if => Proc.new {|o| o.for_company? }
       order.validates :company_number, :presence => true, :if => Proc.new {|o| o.for_company? }
       order.validates :billing_address1, :presence => true
-      order.validates :billing_address3, :presence => true
       order.validates :billing_address4, :presence => true
       order.validates :billing_postcode, :presence => true
       order.validates :billing_country, :presence => true
