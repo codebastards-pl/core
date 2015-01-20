@@ -1,4 +1,11 @@
 pl:
+  shoppe:
+    order_mailer:
+      received:
+        subject: Dziękujemy za złożenie zamówienia
+        accepted: Twoje zamówienie zostało przyjęte do realizacji
+        rejected: Twoje zamówienie zostało odrzucone
+        shipped: Twoje zamówienie zostało wysłane
   activerecord:
     models:
       shoppe/country:

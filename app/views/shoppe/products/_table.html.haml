@@ -13,7 +13,7 @@
       - else
         - for category, products in products
           %tr
-            %th{:colspan => 4}= category.name
+            %th{:colspan => 4}= category.try :name
           - for product in products
             %tr
               %td= product.sku
