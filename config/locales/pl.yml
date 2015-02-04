@@ -91,6 +91,7 @@ pl:
         reference: Numer referencyjny
       shoppe/product:
         cost_price: Koszt
+        discount_price: Przecena
         description: Opis
         name: Nazwa
         permalink: Permalink

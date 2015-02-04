@@ -84,6 +84,7 @@ en:
         reference: Reference
       shoppe/product:
         cost_price: Cost price
+        discount_price: Discount price
         description: Description
         name: Name
         permalink: Permalink

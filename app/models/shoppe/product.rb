@@ -62,6 +62,7 @@ module Shoppe
     validates :sku, :presence => true
     validates :weight, :numericality => true
     validates :price, :numericality => true
+    validates :discount_price, :numericality => true, allow_blank: true
     validates :cost_price, :numericality => true, :allow_blank => true
 
     # Before validation, set the permalink if we don't already have one
@@ -96,14 +97,15 @@ module Shoppe
     #
     # @return [BigDecimal]
     def price
-      self.default_variant ? self.default_variant.price : read_attribute(:price)
+      if discounted?
+        discount_price
+      else
+        self.default_variant ? self.default_variant.price : read_attribute(:price)
+      end
     end
 
-    # The price for the product
-    #
-    # @return [BigDecimal]
-    def grand_price
-      ((self.default_variant ? self.default_variant.price : read_attribute(:price))*(1 + (tax_rate.try(:rate)||0)/100.0)).round(2)
+    def old_price
+      self.default_variant ? self.default_variant.price : read_attribute(:price)
     end
 
     # Is this product currently in stock?
@@ -201,6 +203,10 @@ module Shoppe
       when ".xlsx" then Roo::Excelx.new(file.path)
       else raise I18n.t('shoppe.imports.errors.unknown_format', filename: File.original_filename)
       end
+    end
+
+    def discounted?
+      discount_price > 0.0
     end
 
     private
