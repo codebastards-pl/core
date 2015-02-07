@@ -124,7 +124,7 @@ module Shoppe
 
     # Attachments
     def default_image
-      self.attachments.for("default_image")
+      @_default_image ||= self.attachments.for("default_image")
     end
 
     def data_sheet
@@ -134,7 +134,7 @@ module Shoppe
     #
     # @return [Shoppe::ProductCategory]
     def product_category
-      self.product_categories.first rescue nil
+      @_category ||= self.product_categories.first rescue nil
     end
 
     # Search for products which include the given attributes and return an active record
