@@ -14,11 +14,18 @@
         %dd.checkbox
           = f.check_box :permalink_includes_ancestors
           = f.label :permalink_includes_ancestors, t('shoppe.product_category.permalink_includes_ancestors')
-    %dl.cleared
+    %dl
       %dt= f.label :description, t('shoppe.product_category.description')
       %dd= f.text_area :description, :class => 'text'
-      %dt= f.label :position, t('shoppe.product_category.position')
-      %dd= f.text_field :position, :class => 'text'
+    .splitContainer
+      %dl.half
+        %dt= f.label :position, t('shoppe.product_category.position')
+        %dd= f.text_field :position, :class => 'text'
+      %dl.half
+        %dt &nbsp;
+        %dd.checkbox
+          = f.check_box :disabled
+          = f.label :disabled, t('shoppe.product_category.disabled')
 
   = field_set_tag t('shoppe.product_category.nesting.category_nesting') do
     %dl

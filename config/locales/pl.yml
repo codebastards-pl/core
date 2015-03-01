@@ -413,6 +413,7 @@ pl:
       permalink: Permalink
       permalink_includes_ancestors: Prefix links in store with ancestor categories
       position: Pozycja
+      disabled: Nie aktywna
       product_categories: Kategorie produktów
       update_notice: Kategoria została zaktualizowana
       nesting:

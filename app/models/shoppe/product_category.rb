@@ -29,6 +29,7 @@ module Shoppe
     # All categories ordered by their name ascending
     scope :ordered, -> { order(:name) }
     scope :positioned, -> { order(:position) }
+    scope :enabled, -> { where(disabled: false) }
 
     # Root (no parent) product categories only
     scope :without_parent, -> { where(parent_id: nil) }
