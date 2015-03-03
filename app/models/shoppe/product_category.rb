@@ -8,6 +8,7 @@ module Shoppe
     # which has been referenced in the Gemfile as we can't add a dependency
     # to a branch in the .gemspec
     acts_as_nested_set  dependent: :restrict_with_exception,
+                        order: :position,
                         after_move: :set_ancestral_permalink
 
     self.table_name = 'shoppe_product_categories'
