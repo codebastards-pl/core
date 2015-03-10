@@ -1,0 +1,22 @@
+- @page_title = t('shoppe.customers.customers')
+
+= content_for :header do
+  %h2.customers= t('shoppe.customers.customers')
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.customers.name')
+        %th= t('shoppe.customers.email')
+        %th= t('shoppe.customers.last_sign_in')
+        %th= t('shoppe.customers.sign_in_count')
+    %tbody
+      - for customer in @customers
+        %tr
+          %td
+            = customer.first_name
+            = customer.last_name
+          %td= customer.email
+          %td= customer.last_sign_in_at
+          %td= customer.sign_in_count

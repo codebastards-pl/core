@@ -35,6 +35,7 @@ Shoppe::Engine.routes.draw do
   end
   resources :tax_rates
   resources :users
+  resources :customers, only: [:index]
   resources :countries
   resources :attachments, :only => :destroy
 

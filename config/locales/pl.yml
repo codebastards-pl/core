@@ -594,6 +594,26 @@ pl:
       user_details: Dane użytkownika
       users: Użytkownicy
 
+    customers:
+      back_to_customers: Powrót do listy klientów
+      create_notice: Klient został utowrzony
+      delete_confirmation:  Czy na pewno usunąć klienta?
+      demo_mode_error: Nie możesz zmieniać użytkowników w trybie demo.
+      destroy_notice: Klient został usunięty
+      email: E-Mail
+      first_name: Imię
+      last_name: Nazwisko
+      login: Login
+      name: Nazwa
+      new_customers: Nowy Klient
+      password: Hasło
+      password_confirmation: ...powtórz hasło
+      update_notice: Klient został zaktualizowany
+      customer_details: Dane klienta
+      customers: Klienci
+      last_sign_in: Ostatnie logowanie
+      sign_in_count: Ilość logowań
+
     variants:
       back_to_variants: Powrót do wariantów
       cost_price: Koszt
@@ -642,6 +662,7 @@ pl:
         delivery_services: Opcje dostawy
         tax_rates: Stawki podatkowe
         users: Użytkownicy
+        customers: Klienci
         countries: Kraje
         settings: Ustawienia
 
