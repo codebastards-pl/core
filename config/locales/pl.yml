@@ -409,6 +409,7 @@ pl:
       image: Obrazek
       name: Nazwa
       new_category: Nowa kategoria
+      news: zawiera nowości
       no_categories: Brak kategorii do wyświetlenia
       permalink: Permalink
       permalink_includes_ancestors: Prefix links in store with ancestor categories
@@ -463,6 +464,7 @@ pl:
       in_the_box: Co zawiera pudełko?
       name: Nazwa
       new_product: Nowy produkt
+      news: nowość?
       no_products: Brak produktów do wyświetlenia
       no_stock: Brak
       no_tax: Brak podatku
