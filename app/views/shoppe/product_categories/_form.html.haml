@@ -26,12 +26,11 @@
         %dd.checkbox
           = f.check_box :disabled
           = f.label :disabled, t('shoppe.product_category.disabled')
-    .splitContainer
-      %dl.half
-        %dt &nbsp;
-        %dd.checkbox
-          = f.check_box :news
-          = f.label :news, t('shoppe.product_category.news')
+    %dl
+      %dt= t('shoppe.product_category.news')
+      %dd.checkbox
+        = f.check_box :news
+        = f.label :news, t('shoppe.product_category.news')
 
   = field_set_tag t('shoppe.product_category.nesting.category_nesting') do
     %dl

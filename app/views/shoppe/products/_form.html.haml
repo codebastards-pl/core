@@ -15,12 +15,11 @@
       %dl.third
         %dt= f.label :sku, t('shoppe.products.sku')
         %dd= f.text_field :sku, :class => 'text'
-    .splitContainer
-      %dl.half
-        %dt &nbsp;
-        %dd.checkbox
-          = f.check_box :news
-          = f.label :news, t('shoppe.product.news')
+    %dl
+      %dt= t('shoppe.product.news')
+      %dd.checkbox
+        = f.check_box :news
+        = f.label :news, t('shoppe.product.news')
     %dl
       %dt= f.label :description, t('shoppe.products.description')
       %dd= f.text_area :description, :class => 'text'
